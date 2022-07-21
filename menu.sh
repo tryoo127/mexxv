@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 MYIP=$(wget -qO- ipinfo.io/ip)
 IZIN=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk '{print $4}' | grep $MYIP)
 clear
@@ -138,9 +138,9 @@ echo -e "    * SHADOWSOCKSR  : "$green"Running"$NC""
 else                                                                                    
 echo -e "    * SHADOWSOCKSR  : "$red"Not Running (Error)"$NC""        
 fi
-echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "    * CLIENT        : $NAME"
-echo -e "    * EXPIRED       : $EXP"
+
+echo -e "    * CLIENT NAME   : $NAME"
+echo -e "    * EXPIRED ON    : $EXP"
 echo -e "    * SERVER ISP    : $ISP"
 echo -e "    * I.P ADDRESS   : $IPVPS"
 echo -e "    * DOMAIN HOST   : $DOMAIN"
