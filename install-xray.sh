@@ -35,7 +35,7 @@ apt install python3 -y
 mkdir -p /usr/local/syfqsam/
 
 # // Installation XRay Core
-wget -q -O /usr/local/syfqsam/xray-mini "https://raw.githubusercontent.com/tryoo127/newguy/main/xray-mini" 
+wget -q -O /usr/local/syfqsam/xray-mini "https://raw.githubusercontent.com/tryoo127/mexxv/main/xray-mini" 
 chmod +x /usr/local/syfqsam/xray-mini
 
 # // Make XRay Mini Root Folder
@@ -205,10 +205,10 @@ systemctl enable xray-mini@vless-splice
 systemctl start xray-mini@vless-splice
 
 # // Downloading Menu
-wget -q -O /usr/bin/add-xray "https://raw.githubusercontent.com/tryoo127/newguy/main/add-xray.sh"
-wget -q -O /usr/bin/del-xray "https://raw.githubusercontent.com/tryoo127/newguy/main/del-xray.sh"
-wget -q -O /usr/bin/renew-xray "https://raw.githubusercontent.com/tryoo127/newguy/main/renew-xray.sh"
-wget -q -O /usr/bin/cek-xtls "https://raw.githubusercontent.com/tryoo127/newguy/main/cek-xtls.sh"
+wget -q -O /usr/bin/add-xray "https://raw.githubusercontent.com/tryoo127/mexxv/main/add-xray.sh"
+wget -q -O /usr/bin/del-xray "https://raw.githubusercontent.com/tryoo127/mexxv/main/del-xray.sh"
+wget -q -O /usr/bin/renew-xray "https://raw.githubusercontent.com/tryoo127/mexxv/main/renew-xray.sh"
+wget -q -O /usr/bin/cek-xtls "https://raw.githubusercontent.com/tryoo127/mexxv/main/cek-xtls.sh"
 chmod +x /usr/bin/add-xray
 chmod +x /usr/bin/del-xray
 chmod +x /usr/bin/renew-xray

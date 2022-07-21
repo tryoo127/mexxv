@@ -1,22 +1,12 @@
 !#/bin/bash
-
-MYIP=$(wget -qO- ipinfo.io/ip);
-IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk '{print $4}' | grep $MYIP )
-if [ $MYIP = $IZIN ]; then
+MYIP=$(wget -qO- ipinfo.io/ip)
+IZIN=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk '{print $4}' | grep $MYIP)
 clear
-echo -e "${green}   TAHNIAH! ANDA DIBENARKAN MENGGUNAKAN SCRIPT INI...${NC}"
-else
-clear
-echo ""
-rm -f setup.sh
-echo '                            ...                           '
-echo -e "${red}        MAAF! ANDA TIDAK DIBENARKAN MENGGUNAKAN SCRIPT INI...${NC}"
-echo '                            ...                           ' 
-sleep 7
-exit 0
-fi
-clear
-
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10)
+DOMAIN=$(cat /etc/v2ray/domain)
+IPVPS=$(curl -s ipinfo.io/ip)
+NAME=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $2}')
+EXP=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $3}')
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;39m           ◎ 𝗦𝗘𝗥𝗩𝗘𝗥 𝗦𝗧𝗔𝗧𝗨𝗦 ◎                              \e[0m"
 echo -e
@@ -148,6 +138,13 @@ echo -e "    * SHADOWSOCKSR  : "$green"Running"$NC""
 else                                                                                    
 echo -e "    * SHADOWSOCKSR  : "$red"Not Running (Error)"$NC""        
 fi
+echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "    * CLIENT        : $NAME"
+echo -e "    * EXPIRED       : $EXP"
+echo -e "    * SERVER ISP    : $ISP"
+echo -e "    * I.P ADDRESS   : $IPVPS"
+echo -e "    * DOMAIN HOST   : $DOMAIN"
+echo -e "    * OS VERSION    : `hostnamectl | grep "Operating System" | cut -d ' ' -f5-`"
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;39m           ◎ 𝗩𝗣𝗡 𝗣𝗔𝗡𝗘𝗟 𝗠𝗘𝗡𝗨 ◎                             \e[0m"                         
 echo -e
