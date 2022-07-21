@@ -7,7 +7,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk '{print $4}' | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 clear
-echo -e "${green}TAHNIAH! ANDA DIBENARKAN MENGGUNAKAN SCRIPT @mexxv! ${NC}"
+echo -e "${green} INSTALLING V2RAY VLESS,VMESS,TROJAN ${NC}"
 sleep 5
 else
 clear
@@ -37,7 +37,7 @@ date
 mkdir -p /etc/trojan/
 touch /etc/trojan/akun.conf
 # install v2ray
-wget https://raw.githubusercontent.com/tryoo127/newguy/main/go.sh && chmod +x go.sh && ./go.sh
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/go.sh && chmod +x go.sh && ./go.sh
 rm -f /root/go.sh
 bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 mkdir /root/.acme.sh
@@ -563,23 +563,23 @@ systemctl restart v2ray
 systemctl enable v2ray
 cd /usr/bin
 #Add
-wget -O add-ws "https://raw.githubusercontent.com/tryoo127/newguy/main/add-ws.sh"
-wget -O add-vless "https://raw.githubusercontent.com/tryoo127/newguy/main/add-vless.sh"
-wget -O add-tr "https://raw.githubusercontent.com/tryoo127/newguy/main/add-tr.sh"
+wget -O add-ws "https://raw.githubusercontent.com/tryoo127/mexxv/main/add-ws.sh"
+wget -O add-vless "https://raw.githubusercontent.com/tryoo127/mexxv/main/add-vless.sh"
+wget -O add-tr "https://raw.githubusercontent.com/tryoo127/mexxv/main/add-tr.sh"
 #Del
-wget -O del-ws "https://raw.githubusercontent.com/tryoo127/newguy/main/del-ws.sh"
-wget -O del-vless "https://raw.githubusercontent.com/tryoo127/newguy/main/del-vless.sh"
-wget -O del-tr "https://raw.githubusercontent.com/tryoo127/newguy/main/del-tr.sh"
+wget -O del-ws "https://raw.githubusercontent.com/tryoo127/mexxv/main/del-ws.sh"
+wget -O del-vless "https://raw.githubusercontent.com/tryoo127/mexxv/main/del-vless.sh"
+wget -O del-tr "https://raw.githubusercontent.com/tryoo127/mexxv/main/del-tr.sh"
 #Cek
-wget -O cek-ws "https://raw.githubusercontent.com/tryoo127/newguy/main/cek-ws.sh"
-wget -O cek-vless "https://raw.githubusercontent.com/tryoo127/newguy/main/cek-vless.sh"
-wget -O cek-tr "https://raw.githubusercontent.com/tryoo127/newguy/main/cek-tr.sh"
+wget -O cek-ws "https://raw.githubusercontent.com/tryoo127/mexxv/main/cek-ws.sh"
+wget -O cek-vless "https://raw.githubusercontent.com/tryoo127/mexxv/main/cek-vless.sh"
+wget -O cek-tr "https://raw.githubusercontent.com/tryoo127/mexxv/main/cek-tr.sh"
 #Renew
-wget -O renew-ws "https://raw.githubusercontent.com/tryoo127/newguy/main/renew-ws.sh"
-wget -O renew-vless "https://raw.githubusercontent.com/tryoo127/newguy/main/renew-vless.sh"
-wget -O renew-tr "https://raw.githubusercontent.com/tryoo127/newguy/main/renew-tr.sh"
+wget -O renew-ws "https://raw.githubusercontent.com/tryoo127/mexxv/main/renew-ws.sh"
+wget -O renew-vless "https://raw.githubusercontent.com/tryoo127/mexxv/main/renew-vless.sh"
+wget -O renew-tr "https://raw.githubusercontent.com/tryoo127/mexxv/main/renew-tr.sh"
 #Cert
-wget -O certv2ray "https://raw.githubusercontent.com/tryoo127/newguy/main/cert.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/tryoo127/mexxv/main/cert.sh"
 chmod +x add-ws
 chmod +x add-vless
 chmod +x add-tr
