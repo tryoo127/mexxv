@@ -285,7 +285,6 @@ wget -O menu-trojan "https://raw.githubusercontent.com/tryoo127/mexxv/main/menu-
 wget -O menu-wg "https://raw.githubusercontent.com/tryoo127/mexxv/main/menu-wg.sh"
 wget -O menu-ssh "https://raw.githubusercontent.com/tryoo127/mexxv/main/menu-ssh.sh"
 wget -O menu-xray "https://raw.githubusercontent.com/tryoo127/mexxv/main/menu-xray.sh"
-wget -O checksystem "https://raw.githubusercontent.com/tryoo127/mexxv/main/checksystem.sh"
 wget -O netflix "https://raw.githubusercontent.com/tryoo127/mexxv/main/netflix.sh"
 wget -O system-info "https://raw.githubusercontent.com/tryoo127/mexxv/main/system-info.sh"
 chmod +x add-host
@@ -325,7 +324,6 @@ chmod +x menu-trojan
 chmod +x menu-wg
 chmod +x menu-ssh
 chmod +x menu-xray
-chmod +x checksystem
 chmod +x netflix
 chmod +x system-info
 echo "0 5 * * * root reboot" >> /etc/crontab
