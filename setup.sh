@@ -1,17 +1,19 @@
 #!/bin/bash
-
+red='\e[1;31m'
+green='\e[0;32m'
+cyan='\e[0;36m'
+NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk '{print $4}' | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 clear
-echo -e "${green}   TAHNIAH! ANDA DIBENARKAN MENGGUNAKAN SCRIPT INI...${NC}"
+echo -e "${green}          PERMISSION ACCEPTED!${NC}"
 else
 clear
 echo ""
 rm -f setup.sh
-echo '                            ...                           '
-echo -e "${red}        MAAF! ANDA TIDAK DIBENARKAN MENGGUNAKAN SCRIPT INI...${NC}"
-echo '                            ...                           ' 
+echo -e "${red}              PERMISSION DENIED!${NC}"
+echo -e "${green} PLEASE CONTACT @XoolVPN TO REGISTER YOUR I.P${NC}"
 sleep 7
 exit 0
 fi
