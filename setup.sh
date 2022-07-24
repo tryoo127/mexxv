@@ -6,9 +6,9 @@ NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk '{print $4}' | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
-sleep 5
 clear
 echo -e "${green}            PERMISSION ACCEPTED!${NC}"
+sleep 3
 else
 clear
 echo ""
