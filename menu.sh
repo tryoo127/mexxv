@@ -1,5 +1,4 @@
 #!/bin/bash
-#Access Permission
 red='\e[1;31m'
 green='\e[0;32m'
 cyan='\e[0;36m'
@@ -9,7 +8,7 @@ IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk
 if [ $MYIP = $IZIN ]; then
 clear
 echo -e "${green}            PERMISSION ACCEPTED!${NC}"
-sleep 3
+else
 clear
 echo ""
 rm -f setup.sh
@@ -18,7 +17,8 @@ echo -e "${green} PLEASE CONTACT @XoolVPN TO REGISTER YOUR I.P${NC}"
 sleep 7
 exit 0
 fi
-#Server Information
+clear
+
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10)
 DOMAIN=$(cat /etc/v2ray/domain)
 IPVPS=$(curl -s ipinfo.io/ip)
@@ -26,6 +26,8 @@ CITY=$(curl -s ipinfo.io/city )
 WKT=$(curl -s ipinfo.io/timezone )
 DAY=$(date +%A)
 DATE=$(date +%m/%d/%Y)
+
+
 #Download/Upload today
 dtoday="$(vnstat -i eth0 | grep "today" | awk '{print $2" "substr ($3, 1, 1)}')"
 utoday="$(vnstat -i eth0 | grep "today" | awk '{print $5" "substr ($6, 1, 1)}')"
@@ -38,7 +40,7 @@ tyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}
 dmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $3" "substr ($4, 1, 1)}')"
 umon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $6" "substr ($7, 1, 1)}')"
 tmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}')"
-#Client Information
+
 NAME=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $2}')
 EXP=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $3}')
 echo -e   "\E[0;37;46m           ◎ 𝗦𝗘𝗥𝗩𝗘𝗥 𝗦𝗧𝗔𝗧𝗨𝗦 ◎                       \e[0m"
@@ -176,10 +178,10 @@ else
 echo -e " * \e[1;36mSHADOWSOCKSR  : "$red"Not Running (Error)"$NC""
 fi
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[0m   TRAFFIC   TODAY      YESTERDAY   MONTH"
-echo -e " * \e[1;36mDOWNLOAD\e[0m  \e[0;32m$dtoday  $dyest $dmon\e[0m"
-echo -e " * \e[1;36mUPLOAD\e[0m    \e[0;32m$utoday  $uyest  $umon\e[0m"
-echo -e " * \e[1;36mTOTAL\e[0m     \e[0m$ttoday  $tyest $tmon\e[0m"
+echo -e "\e[0m   TRAFFIC   TODAY      YESTERDAY     MONTH"
+echo -e " * \e[1;36mDownload\e[0m \e[0;32m $dtoday  $dyest $dmon\e[0m"
+echo -e " * \e[1;36mUpload\e[0m   \e[0;32m $utoday  $uyest $umon\e[0m"
+echo -e " * \e[1;36mTotal\e[0m   \e[0m  $ttoday  $tyest $tmon\e[0m "
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;37;46m           ◎ 𝗩𝗣𝗡 𝗣𝗔𝗡𝗘𝗟 𝗠𝗘𝗡𝗨 ◎                      \e[0m"
 echo -e
