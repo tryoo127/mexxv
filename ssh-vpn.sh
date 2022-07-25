@@ -287,7 +287,6 @@ wget -O menu-ssh "https://raw.githubusercontent.com/tryoo127/mexxv/main/menu-ssh
 wget -O menu-xray "https://raw.githubusercontent.com/tryoo127/mexxv/main/menu-xray.sh"
 wget -O netflix "https://raw.githubusercontent.com/tryoo127/mexxv/main/netflix.sh"
 wget -O system-info "https://raw.githubusercontent.com/tryoo127/mexxv/main/system-info.sh"
-wget -O kernel-updt "https://raw.githubusercontent.com/tryoo127/mexxv/main/kernel-update.sh"
 chmod +x add-host
 chmod +x add-host
 chmod +x menu
@@ -327,7 +326,6 @@ chmod +x menu-ssh
 chmod +x menu-xray
 chmod +x netflix
 chmod +x system-info
-chmod +x kernel-updt
 echo "0 5 * * * root reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
