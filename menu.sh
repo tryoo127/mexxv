@@ -9,7 +9,7 @@ IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk
 if [ $MYIP = $IZIN ]; then
 clear
 echo -e "${green}            PERMISSION ACCEPTED!${NC}"
-else
+sleep 3
 clear
 echo ""
 rm -f setup.sh
