@@ -8,6 +8,7 @@ IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk
 if [ $MYIP = $IZIN ]; then
 clear
 echo -e "${green}            PERMISSION ACCEPTED!${NC}"
+sleep 3
 else
 clear
 echo ""
@@ -19,220 +20,122 @@ exit 0
 fi
 clear
 
-ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10)
-DOMAIN=$(cat /etc/v2ray/domain)
-IPVPS=$(curl -s ipinfo.io/ip)
-CITY=$(curl -s ipinfo.io/city )
-WKT=$(curl -s ipinfo.io/timezone )
-DAY=$(date +%A)
-DATE=$(date +%m/%d/%Y)
-NAME=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $2}')
-EXP=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $3}')
-#Download/Upload today
-dtoday="$(vnstat -i eth0 | grep "today" | awk '{print $2" "substr ($3, 1, 1)}')"
-utoday="$(vnstat -i eth0 | grep "today" | awk '{print $5" "substr ($6, 1, 1)}')"
-ttoday="$(vnstat -i eth0 | grep "today" | awk '{print $8" "substr ($9, 1, 1)}')"
-#Download/Upload yesterday
-dyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $2" "substr ($3, 1, 1)}')"
-uyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $5" "substr ($6, 1, 1)}')"
-tyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}')"
-#Download/Upload current month
-dmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $3" "substr ($4, 1, 1)}')"
-umon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $6" "substr ($7, 1, 1)}')"
-tmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}')"
-echo -e   "\E[0;37;46m           ◎ 𝗦𝗘𝗥𝗩𝗘𝗥 𝗦𝗧𝗔𝗧𝗨𝗦 ◎                       \e[0m"
-echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " * CLIENT NAME   : $NAME"$NC""
-echo -e " * I.D EXPIRED   : $EXP"$NC""
-echo -e " * SERVER ISP    : $ISP"$NC""
-echo -e " * REGION        : $WKT"$NC""
-echo -e " * IP ADDRESS    : $IPVPS"$NC""
-echo -e " * DOMAIN HOST   : $DOMAIN"$NC""
+echo '============================================='
+echo '      UPDATE & UPGRADE IN PROGRESS '
+echo '============================================='
+apt update && apt upgrade -y
+clear
+echo '============================================='
+echo '      UPDATE & UPGRADE PROCESS COMPLETE '
+echo '============================================='
+clear
+echo '============================================='
+echo '       NEXT PROCESS PLEASE WAIT  '
+echo '============================================='
+mkdir /etc/v2ray
+mkdir /var/lib/premium-script;
+mkdir /var/lib/crot-script;
+clear
+echo '============================================='
+echo "       ENTER YOUR DOMAIN OR SUBDOMAIN"
+echo '============================================='
+read -p "Hostname / Domain: " host
+echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
+echo "IP=$host" >> /var/lib/crot-script/ipvps.conf
+echo "$host" >> /etc/v2ray/domain
+clear
+echo '============================================='
+echo '       INSTALLING SSH & OPENVPN '
+echo '============================================='
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+echo '============================================='
+echo '       INSTALLING SHADOWSOCKSR '
+echo '============================================='
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
+echo '============================================='
+echo '       INSTALLING SHADOWSOCKSOBFS '
+echo '============================================='
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+echo '============================================='
+echo '       INSTALLING WIREGUARD '
+echo '============================================='
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+echo '============================================='
+echo '       INSTALLING V2RAY '
+echo '============================================='
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+echo '============================================='
+echo '       INSTALLING XRAY '
+echo '============================================='
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/install-xray.sh && chmod +x install-xray.sh && screen -S v2ray ./install-xray.sh
+echo '============================================='
+echo '       INSTALLING OPENVPN OHP '
+echo '============================================='
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 
-status="$(systemctl show ssh.service --no-page)"                                   
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mSSH OPENVPN   : "$green"Service Is Running"$NC""                  
-else                                                                                    
-echo -e " * \e[1;36mSSH OPENVPN   : "$red"Not Running (Error)"$NC""        
-fi
+rm -f /root/ssh-vpn.sh
+rm -f /root/wg.sh
+rm -f /root/ss.sh
+rm -f /root/ssr.sh
+rm -f /root/ins-vt.sh
+rm -f /root/install-xray.sh
+rm -f /root/ohp.sh
+echo "1.1" > /home/ver
 
-status="$(systemctl show openvpn-ohp.service --no-page)"                                   
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mOPENVPN OHP   : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mOPENVPN OHP   : "$red"Not Running (Error)"$NC""        
-fi                        
-
-status="$(systemctl show stunnel4.service --no-page)"                                   
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mSSL STUNNEL   : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mSSL STUNNEL   : "$red"Not Running (Error)"$NC""        
-fi                                                                               
-
-status="$(systemctl show dropbear.service --no-page)"                                   
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mDROPBEAR      : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mDROPBEAR      : "$red"Not Running (Error)"$NC""        
-fi                                                                                    
-
-status="$(systemctl show squid.service --no-page)"                                      
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mSQUID PROXY   : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mSQUID PROXY   : "$red"Not Running (Error)"$NC""        
-fi
-
-status="$(systemctl show xray-mini@vless-direct --no-page)"                                      
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mVLESS XTLS    : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mVLESS XTLS    : "$red"Not Running (Error)"$NC""        
-fi
-
-status="$(systemctl show v2ray@vless.service --no-page)"                                      
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mVLESS TLS     : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mVLESS TLS     : "$red"Not Running (Error)"$NC""        
-fi
-
-status="$(systemctl show v2ray@vnone.service --no-page)"                                      
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mVLESS NTLS    : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mVLESS NTLS    : "$red"Not Running (Error)"$NC""        
-fi              
-
-status="$(systemctl show v2ray.service --no-page)"                                      
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mVMESS TLS     : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mVMESS TLS     : "$red"Not Running (Error)"$NC""        
-fi
-
-status="$(systemctl show v2ray@none.service --no-page)"                                 
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mVMESS NTLS    : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mVMESS NTLS    : "$red"Not Running (Error)"$NC""        
-fi
-
-status="$(systemctl show trojan --no-page)"                                      
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mTROJAN GFW    : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mTROJAN GFW    : "$red"Not Running (Error)"$NC""        
-fi
-
-status="$(systemctl show wg-quick@wg0 --no-page)"                                      
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mWIREGUARD     : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mWIREGUARD     : "$red"Not Running (Error)"$NC""        
-fi
-
-status="$(systemctl show shadowsocks-libev.service --no-page)"                                      
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mSHADOWSOCKS   : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mSHADOWSOCKS   : "$red"Not Running (Error)"$NC""        
-fi
-
-status="$(systemctl show ssrmu --no-page)"                                      
-status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
-if [ "${status_text}" == "active" ]                                                     
-then                                                                                    
-echo -e " * \e[1;36mSHADOWSOCKSR  : "$green"Service Is Running"$NC""                  
-else
-echo -e " * \e[1;36mSHADOWSOCKSR  : "$red"Not Running (Error)"$NC""
-fi
-echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[0m   TRAFFIC   TODAY      YESTERDAY     MONTH"
-echo -e " * \e[1;36mDownload\e[0m  \e[0;32m$dtoday    $dyest     $dmon   \e[0m"
-echo -e " * \e[1;36mUpload\e[0m    \e[0;32m$utoday    $uyest       $umon   \e[0m"
-echo -e " * \e[1;36mTotal\e[0m   \e[0m  $ttoday    $tyest     $tmon  \e[0m "
-echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;37;46m           ◎ 𝗩𝗣𝗡 𝗣𝗔𝗡𝗘𝗟 𝗠𝗘𝗡𝗨 ◎                      \e[0m"
-echo -e
-echo -e " [1]\e[0m•\e[1;36mSSH OVPN\e[0m" "      [6]\e[0m•\e[1;36mVLESS\e[0m"
-
-echo -e " [2]\e[0m•\e[1;36mWIREGUARD\e[0m" "     [7]\e[0m•\e[1;36mVMESS\e[0m"
-
-echo -e " [3]\e[0m•\e[1;36mSHADOWSOCKS\e[0m" "   [8]\e[0m•\e[1;36mTROJAN\e[0m"
-
-echo -e " [4]\e[0m•\e[1;36mSHADOWSOCKSR\e[0m" "  [9]\e[0m•\e[1;36mCHECK DNS\e[0m"
-
-echo -e " [5]\e[0m•\e[1;36mVLESS XTLS\e[0m" "    [10]\e[0m•\e[1;36mSYSTEM MENU\e[0m"
-echo -e
-echo -e "\E[0;37;46m           ◎ Moded By 𝑿𝒐𝒐𝒍𝚅𝙿𝙽 ◎                    \e[0m"
-echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e ""
-read -p " * SELECT OPTIONS MENU FROM [1-10 OR X TO EXIT]:" menu
-echo -e ""
-case $menu in
-1)
-    menu-ssh
-    ;;
-2)
-    menu-wg
-    ;;
-3)
-    menu-ss
-    ;;
-4)
-    menu-ssr
-    ;;
-5)
-    menu-xray
-    ;;
-6)
-    menu-vless
-    ;;
-7)
-    menu-vmess
-    ;;
-8)
-    menu-trojan
-    ;;
-9)
-    netflix
-    ;;
-10)
-    system-info
-    ;;
-x)
-    exit
-    menu
-    ;;
-*)
-    menu
-    ;;
-esac
+echo "menu" >> .profile
+clear
+echo ""
+echo '============================================='
+echo "      INSTALLATION HAS BEEN COMPLETED!!"
+echo '============================================='
+sleep 2
+echo ""
+echo "      PREMIUM SCRIPT BY @mexxv" | tee -a log-install.txt
+echo "=============================================" | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo "   >>> Service & Port"  | tee -a log-install.txt
+echo "   - OpenSSH                 : 22"  | tee -a log-install.txt
+echo "   - OpenVPN                 : TCP 1194, UDP 2200, SSL 442"  | tee -a log-install.txt
+echo "   - OpenVPN OHP             : 8888"  | tee -a log-install.txt
+echo "   - SSL/TLS                 : 789, 777"  | tee -a log-install.txt
+echo "   - Dropbear                : 109, 143"  | tee -a log-install.txt
+echo "   - Squid Proxy             : 3128, 8080 ,8000 (limit to IP Server)"  | tee -a log-install.txt
+echo "   - Wireguard               : 7070"  | tee -a log-install.txt
+echo "   - Shadowsocks-R           : 1443-1543"  | tee -a log-install.txt
+echo "   - SS-OBFS TLS             : 2443-2543"  | tee -a log-install.txt
+echo "   - SS-OBFS HTTP            : 3443-3543"  | tee -a log-install.txt
+echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
+echo "   - V2RAY Vmess None TLS    : 8444"  | tee -a log-install.txt
+echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
+echo "   - V2RAY Vless None TLS    : 80"  | tee -a log-install.txt
+echo "   - XRAY VLESS XTLS         : 443"  | tee -a log-install.txt
+echo "   - Trojan                  : 2087"  | tee -a log-install.txt
+echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
+echo "   - Timezone                : Asia/Malaysia (UTC +8)"  | tee -a log-install.txt
+echo "   - Fail2Ban                : [ON]"  | tee -a log-install.txt
+echo "   - Dflate                  : [ON]"  | tee -a log-install.txt
+echo "   - IPtables                : [ON]"  | tee -a log-install.txt
+echo "   - Auto-Reboot             : [ON/SET]"  | tee -a log-install.txt
+echo "   - IPv6                    : [OFF]"  | tee -a log-install.txt
+echo "   - Autoreboot On 05.00 UTC +8" | tee -a log-install.txt
+echo "   - Autobackup Data" | tee -a log-install.txt
+echo "   - Restore Data" | tee -a log-install.txt
+echo "   - Auto Delete Expired Account" | tee -a log-install.txt
+echo "   - Full Orders For Various Services" | tee -a log-install.txt
+echo "   - White Label" | tee -a log-install.txt
+echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
+echo ""  | tee -a log-install.txt
+echo ""
+echo "=============================================" | tee -a log-install.txt
+echo "      PREMIUM SCRIPT BY @mexxv" | tee -a log-install.txt
+echo ""
+sleep 2
+echo '============================================='
+echo '      SYSTEM WILL BE REBOOT AUTOMATICALLY'
+echo '============================================='
+echo ""
+rm -f /root/setup.sh
+rm -f /root/.bash_history
+echo " Reboot 10 Sec, Setelah LOGIN, type menu"
+sleep 10
+reboot
