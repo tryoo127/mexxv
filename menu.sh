@@ -26,8 +26,8 @@ CITY=$(curl -s ipinfo.io/city )
 WKT=$(curl -s ipinfo.io/timezone )
 DAY=$(date +%A)
 DATE=$(date +%m/%d/%Y)
-NAME=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $2}')
-EXP=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $3}')
+
+
 #Download/Upload today
 dtoday="$(vnstat -i eth0 | grep "today" | awk '{print $2" "substr ($3, 1, 1)}')"
 utoday="$(vnstat -i eth0 | grep "today" | awk '{print $5" "substr ($6, 1, 1)}')"
@@ -40,10 +40,9 @@ tyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}
 dmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $3" "substr ($4, 1, 1)}')"
 umon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $6" "substr ($7, 1, 1)}')"
 tmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}')"
+
 echo -e   "\E[0;37;46m           ◎ 𝗦𝗘𝗥𝗩𝗘𝗥 𝗦𝗧𝗔𝗧𝗨𝗦 ◎                       \e[0m"
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e " * CLIENT NAME   : $NAME"$NC""
-echo -e " * I.D EXPIRED   : $EXP"$NC""
 echo -e " * SERVER ISP    : $ISP"$NC""
 echo -e " * REGION        : $WKT"$NC""
 echo -e " * IP ADDRESS    : $IPVPS"$NC""
@@ -175,7 +174,7 @@ else
 echo -e " * \e[1;36mSHADOWSOCKSR  : "$red"Not Running (Error)"$NC""
 fi
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-$echo -e "\e[0m   TRAFFIC   TODAY      YESTERDAY     MONTH"
+echo -e "\e[0m   TRAFFIC   TODAY      YESTERDAY     MONTH"
 echo -e " * \e[1;36mDownload\e[0m  \e[0;32m$dtoday    $dyest     $dmon   \e[0m"
 echo -e " * \e[1;36mUpload\e[0m    \e[0;32m$utoday    $uyest     $umon   \e[0m"
 echo -e " * \e[1;36mTotal\e[0m   \e[0m  $ttoday    $tyest     $tmon  \e[0m "
