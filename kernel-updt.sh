@@ -50,8 +50,4 @@ else
     echo "Your OS Not Support"
     exit 1
 fi
-
-# Done
-echo "Your VPS Will Be Reboot In 5s"
-sleep 5
-reboot
+sleep 0.5
