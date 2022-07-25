@@ -175,9 +175,9 @@ else
 echo -e " * \e[1;36mSHADOWSOCKSR  : "$red"Not Running (Error)"$NC""
 fi
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[0m   TRAFFIC   TODAY      YESTERDAY     MONTH"
+$echo -e "\e[0m   TRAFFIC   TODAY      YESTERDAY     MONTH"
 echo -e " * \e[1;36mDownload\e[0m  \e[0;32m$dtoday    $dyest     $dmon   \e[0m"
-echo -e " * \e[1;36mUpload\e[0m    \e[0;32m$utoday    $uyest       $umon   \e[0m"
+echo -e " * \e[1;36mUpload\e[0m    \e[0;32m$utoday    $uyest     $umon   \e[0m"
 echo -e " * \e[1;36mTotal\e[0m   \e[0m  $ttoday    $tyest     $tmon  \e[0m "
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;37;46m           ◎ 𝗩𝗣𝗡 𝗣𝗔𝗡𝗘𝗟 𝗠𝗘𝗡𝗨 ◎                      \e[0m"
