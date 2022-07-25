@@ -41,8 +41,12 @@ dmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $3" "substr ($
 umon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $6" "substr ($7, 1, 1)}')"
 tmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}')"
 
+NAME=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $2}')
+EXP=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $3}')
 echo -e   "\E[0;37;46m           ◎ 𝗦𝗘𝗥𝗩𝗘𝗥 𝗦𝗧𝗔𝗧𝗨𝗦 ◎                       \e[0m"
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e " * CLIENT NAME   : $NAME"
+echo -e " * EXPIRED ON    : $EXP"
 echo -e " * SERVER ISP    : $ISP"$NC""
 echo -e " * REGION        : $WKT"$NC""
 echo -e " * IP ADDRESS    : $IPVPS"$NC""
@@ -174,10 +178,10 @@ else
 echo -e " * \e[1;36mSHADOWSOCKSR  : "$red"Not Running (Error)"$NC""
 fi
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[0m   TRAFFIC   TODAY      YESTERDAY     MONTH"
-echo -e " * \e[1;36mDownload\e[0m  \e[0;32m$dtoday    $dyest     $dmon   \e[0m"
-echo -e " * \e[1;36mUpload\e[0m    \e[0;32m$utoday    $uyest     $umon   \e[0m"
-echo -e " * \e[1;36mTotal\e[0m   \e[0m  $ttoday    $tyest     $tmon  \e[0m "
+echo -e "\e[0m   TRAFFIC   TODAY      YESTERDAY   MONTH"
+echo -e " * \e[1;36mDOWNLOAD\e[0m  \e[0;32m$dtoday  $dyest $dmon\e[0m"
+echo -e " * \e[1;36mUPLOAD\e[0m    \e[0;32m$utoday  $uyest  $umon\e[0m"
+echo -e " * \e[1;36mTOTAL\e[0m     \e[0m$ttoday  $tyest $tmon\e[0m"
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;37;46m           ◎ 𝗩𝗣𝗡 𝗣𝗔𝗡𝗘𝗟 𝗠𝗘𝗡𝗨 ◎                      \e[0m"
 echo -e
