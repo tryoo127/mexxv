@@ -72,6 +72,12 @@ echo '============================================='
 echo '       INSTALLING OPENVPN OHP '
 echo '============================================='
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+echo '============================================='
+echo '       UPDATE LATEST KERNEL '
+echo '============================================='
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/kernel-updt.sh && chmod +x kernel-updt.sh && ./kernel-updt.sh
+echo '============================================='
+
 
 rm -f /root/ssh-vpn.sh
 rm -f /root/wg.sh
@@ -80,6 +86,7 @@ rm -f /root/ssr.sh
 rm -f /root/ins-vt.sh
 rm -f /root/install-xray.sh
 rm -f /root/ohp.sh
+rm -f /root/kernel-updt.sh
 echo "1.1" > /home/ver
 
 echo "menu" >> .profile
