@@ -40,6 +40,12 @@ sleep 1
 cp /root/backup/gshadow /etc/ &>/dev/null
 echo -e "[ ${green}INFO${NC} ] • Restoring chap-secrets data..."
 sleep 1
+cp /root/backup/chap-secrets /etc/ppp/ &>/dev/null
+echo -e "[ ${green}INFO${NC} ] • Restoring passwd1 data..."
+sleep 1
+cp /root/backup/passwd1 /etc/ipsec.d/passwd &>/dev/null
+echo -e "[ ${green}INFO${NC} ] • Restoring ss.conf data..."
+sleep 1
 cp /root/backup/ss.conf /etc/shadowsocks-libev/ss.conf &>/dev/null
 echo -e "[ ${green}INFO${NC} ] • Restoring admin data..."
 sleep 1
@@ -49,8 +55,11 @@ cp group /etc/
 cp shadow /etc/
 cp gshadow /etc/
 cp -r wireguard /etc/
+cp chap-secrets /etc/ppp/
+cp passwd1 /etc/ipsec.d/passwd
 cp ss.conf /etc/shadowsocks-libev/ss.conf
 cp -r premium-script /var/lib/
+cp -r sstp /home/
 cp -r trojan /etc/
 cp -r v2ray /etc/
 cp -r shadowsocksr /usr/local/
