@@ -78,7 +78,7 @@ wget https://raw.githubusercontent.com/tryoo127/mexxv/main/kernel-updt.sh && chm
 echo '============================================='
 echo '       INSTALLING BACKUP '
 echo '============================================='
-wget https://raw.githubusercontent.com/tryoo127/mexxv/main/set-br.sh && chmod +x set-br.sh && screen -S set.br ./set-br.sh
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/set-br.sh && chmod +x set-br.sh && screen -S set-br ./set-br.sh
 echo '============================================='
 
 rm -f /root/ssh-vpn.sh
