@@ -45,6 +45,10 @@ echo "IP=$host" >> /var/lib/crot-script/ipvps.conf
 echo "$host" >> /etc/v2ray/domain
 clear
 echo '============================================='
+echo '       UPDATE LATEST KERNEL '
+echo '============================================='
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/kernel-updt.sh && chmod +x kernel-updt.sh && screen -S kernel-updt ./kernel-updt.sh
+echo '============================================='
 echo '       INSTALLING SSH & OPENVPN '
 echo '============================================='
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
@@ -74,6 +78,7 @@ echo '============================================='
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 echo '============================================='
 
+rm -f /root/kernel-updt.sh
 rm -f /root/ssh-vpn.sh
 rm -f /root/wg.sh
 rm -f /root/ss.sh
