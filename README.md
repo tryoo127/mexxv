@@ -3,5 +3,7 @@ apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubuserco
 ```
 
 ```
-apt install linux-headers-$(uname -r) wireguard-dkms wireguard-tools
+Install BBR By Teddysun
+```
+wget -q -O /usr/bin/bbr "https://raw.githubusercontent.com/teddysun/across/master/bbr.sh" && chmod +x /usr/bin/bbr
 ```
