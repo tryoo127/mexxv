@@ -37,9 +37,6 @@ sleep 1
 cp /root/backup/shadow /etc/ &>/dev/null
 echo -e "[ ${green}INFO${NC} ] • Restoring gshadow data..."
 sleep 1
-cp /root/backup/chap-secrets /etc/ppp/ &>/dev/null
-echo -e "[ ${green}INFO${NC} ] • Restoring passwd1 data..."
-sleep 1
 cp /root/backup/passwd1 /etc/ipsec.d/passwd &>/dev/null
 echo -e "[ ${green}INFO${NC} ] • Restoring ss.conf data..."
 sleep 1
