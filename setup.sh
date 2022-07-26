@@ -19,7 +19,6 @@ sleep 7
 exit 0
 fi
 clear
-
 echo '============================================='
 echo '      UPDATE & UPGRADE IN PROGRESS '
 echo '============================================='
