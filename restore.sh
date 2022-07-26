@@ -1,22 +1,4 @@
 #!/bin/bash
-
-MYIP=$(wget -qO- ipinfo.io/ip);
-IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk '{print $4}' | grep $MYIP )
-if [ $MYIP = $IZIN ]; then
-clear
-echo -e "${green}   TAHNIAH! ANDA DIBENARKAN MENGGUNAKAN SCRIPT INI...${NC}"
-else
-clear
-echo ""
-rm -f setup.sh
-echo '                            ...                           '
-echo -e "${red}        MAAF! ANDA TIDAK DIBENARKAN MENGGUNAKAN SCRIPT INI...${NC}"
-echo '                            ...                           ' 
-sleep 7
-exit 0
-fi
-clear
-
 cd
 MYIP=$(curl -sS ipv4.icanhazip.com)
 NameUser=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $MYIP | awk '{print $2}')
@@ -58,12 +40,6 @@ sleep 1
 cp /root/backup/gshadow /etc/ &>/dev/null
 echo -e "[ ${green}INFO${NC} ] • Restoring chap-secrets data..."
 sleep 1
-cp /root/backup/chap-secrets /etc/ppp/ &>/dev/null
-echo -e "[ ${green}INFO${NC} ] • Restoring passwd1 data..."
-sleep 1
-cp /root/backup/passwd1 /etc/ipsec.d/passwd &>/dev/null
-echo -e "[ ${green}INFO${NC} ] • Restoring ss.conf data..."
-sleep 1
 cp /root/backup/ss.conf /etc/shadowsocks-libev/ss.conf &>/dev/null
 echo -e "[ ${green}INFO${NC} ] • Restoring admin data..."
 sleep 1
@@ -73,11 +49,8 @@ cp group /etc/
 cp shadow /etc/
 cp gshadow /etc/
 cp -r wireguard /etc/
-cp chap-secrets /etc/ppp/
-cp passwd1 /etc/ipsec.d/passwd
 cp ss.conf /etc/shadowsocks-libev/ss.conf
 cp -r premium-script /var/lib/
-cp -r sstp /home/
 cp -r trojan /etc/
 cp -r v2ray /etc/
 cp -r shadowsocksr /usr/local/
