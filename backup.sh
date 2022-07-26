@@ -1,22 +1,4 @@
 #!/bin/bash
-
-MYIP=$(wget -qO- ipinfo.io/ip);
-IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk '{print $4}' | grep $MYIP )
-if [ $MYIP = $IZIN ]; then
-clear
-echo -e "${green}   TAHNIAH! ANDA DIBENARKAN MENGGUNAKAN SCRIPT INI...${NC}"
-else
-clear
-echo ""
-rm -f setup.sh
-echo '                            ...                           '
-echo -e "${red}        MAAF! ANDA TIDAK DIBENARKAN MENGGUNAKAN SCRIPT INI...${NC}"
-echo '                            ...                           ' 
-sleep 7
-exit 0
-fi
-clear
-
 IP=$(curl -sS ipv4.icanhazip.com);
 date=$(date +"%Y-%m-%d")
 
@@ -39,8 +21,11 @@ cp /etc/group backup/
 cp /etc/shadow backup/
 cp /etc/gshadow backup/
 cp -r /etc/wireguard backup/wireguard
+cp /etc/ppp/chap-secrets backup/chap-secrets
+cp /etc/ipsec.d/passwd backup/passwd1
 cp /etc/shadowsocks-libev/akun.conf backup/ss.conf
 cp -r /var/lib/premium-script/ backup/premium-script
+cp -r /home/sstp backup/sstp
 cp -r /etc/v2ray backup/v2ray
 cp -r /etc/trojan backup/trojan
 cp -r /usr/local/shadowsocksr/ backup/shadowsocksr
@@ -79,7 +64,7 @@ Save_And_Exit () {
     git commit -m m &> /dev/null
     git branch -M main &> /dev/null
     git remote add origin https://github.com/tryoo127/user-backup-db
-    git push -f https://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@github.com/tryoo127/user-backup-db.git &> /dev/null
+    git push -f https://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@github.com/tryoo127/user-backup-db.git &> /dev/null
 }
 
 if [ ! -d "/root/user-backup/" ]; then
