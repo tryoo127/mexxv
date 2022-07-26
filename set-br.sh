@@ -8,13 +8,12 @@ IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk
 if [ $MYIP = $IZIN ]; then
 clear
 echo -e "${green}            PERMISSION ACCEPTED!${NC}"
-sleep 3
 else
 clear
 echo ""
 rm -f setup.sh
-echo -e "${red}              PERMISSION DENIED!${NC}"
-echo -e "${green} PLEASE CONTACT @XoolVPN TO REGISTER YOUR I.P${NC}"
+echo -e ' ${red}              PERMISSION DENIED!${NC}"
+echo -e ' ${green} PLEASE CONTACT @XoolVPN TO REGISTER YOUR I.P${NC}"
 sleep 7
 exit 0
 fi
