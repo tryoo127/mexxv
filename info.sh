@@ -18,6 +18,5 @@ fi
 clear
 
 echo '============================================='
-echo ''
 cat /root/log-install.txt
 echo ""
