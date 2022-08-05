@@ -19,6 +19,7 @@ exit 0
 fi
 clear
 
+
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10)
 DOMAIN=$(cat /etc/v2ray/domain)
 IPVPS=$(curl -s ipinfo.io/ip)
@@ -43,7 +44,7 @@ tmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($
 
 NAME=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $2}')
 EXP=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $3}')
-echo -e   "\E[0;37;46m           ◎ 𝗦𝗘𝗥𝗩𝗘𝗥 𝗦𝗧𝗔𝗧𝗨𝗦 ◎                       \e[0m"
+echo -e   "\E[0;37;46m              ◎ SERVER STATUS ◎                    \e[0m"
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " * CLIENT NAME   : $NAME"
 echo -e " * EXPIRED ON    : $EXP"
@@ -178,12 +179,12 @@ else
 echo -e " * \e[1;36mSHADOWSOCKSR  : "$red"Not Running (Error)"$NC""
 fi
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\e[0m BANDWIDTH    TODAY    YESTERDAY    MONTH"
-echo -e "\e[1;36m DOWNLOAD\e[0;32m    $dtoday    $dyest      $dmon\e[0m"
-echo -e "\e[1;36m UPLOAD\e[0;32m      $utoday    $uyest       $umon\e[0m"
-echo -e "\e[1;36m TOTAL\e[0m     \e[0m  $ttoday    $tyest      $tmon\e[0m "
+echo -e "\e[0m BANDWIDTH    TODAY     YESTERDAY    MONTH"
+echo -e "\e[1;36m DOWNLOAD\e[0;32m    $dtoday     $dyest     $dmon\e[0m"
+echo -e "\e[1;36m UPLOAD\e[0;32m      $utoday     $uyest     $umon\e[0m"
+echo -e "\e[1;36m TOTAL\e[0m     \e[0m  $ttoday     $tyest     $tmon\e[0m "
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;37;46m           ◎ 𝗩𝗣𝗡 𝗣𝗔𝗡𝗘𝗟 𝗠𝗘𝗡𝗨 ◎                      \e[0m"
+echo -e "\E[0;37;46m              ◎ VPN PANEL MENU ◎                   \e[0m"
 echo -e
 echo -e " [1]\e[0m•\e[1;36mSSH OVPN\e[0m" "      [6]\e[0m•\e[1;36mVLESS\e[0m"
 
@@ -195,7 +196,7 @@ echo -e " [4]\e[0m•\e[1;36mSHADOWSOCKSR\e[0m" "  [9]\e[0m•\e[1;36mCHECK DNS\
 
 echo -e " [5]\e[0m•\e[1;36mVLESS XTLS\e[0m" "    [10]\e[0m•\e[1;36mSYSTEM MENU\e[0m"
 echo -e
-echo -e "\E[0;37;46m           ◎ Moded By 𝑿𝒐𝒐𝒍𝚅𝙿𝙽 ◎                    \e[0m"
+echo -e "\E[0;37;46m             ◎ Moded By XoolVPN ◎                  \e[0m"
 echo -e "\033[0;37m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e ""
 read -p " * SELECT OPTIONS MENU FROM [1-10 OR X TO EXIT]:" menu
