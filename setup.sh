@@ -25,12 +25,9 @@ echo '============================================='
 apt update && apt upgrade -y
 clear
 echo '============================================='
-echo '      UPDATE & UPGRADE PROCESS COMPLETE '
+echo '       PREMIUM SCRIPT BY XoolVPN  '
 echo '============================================='
-clear
-echo '============================================='
-echo '       NEXT PROCESS PLEASE WAIT  '
-echo '============================================='
+sleep 3
 mkdir /etc/v2ray
 mkdir /var/lib/premium-script;
 mkdir /var/lib/crot-script;
@@ -44,40 +41,41 @@ echo "IP=$host" >> /var/lib/crot-script/ipvps.conf
 echo "$host" >> /etc/v2ray/domain
 clear
 echo '============================================='
+echo '       INSTALLING DOMAIN & V2RAY '
+echo '============================================='
+sleep 3
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/install-xray.sh && chmod +x install-xray.sh && screen -S v2ray ./install-xray.sh
+echo '============================================='
 echo '       INSTALLING SSH & OPENVPN '
 echo '============================================='
+sleep 3
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 echo '============================================='
-echo '       INSTALLING SHADOWSOCKSR '
+echo '       INSTALLING SHADOWSOCKS '
 echo '============================================='
+sleep 3
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
-echo '============================================='
-echo '       INSTALLING SHADOWSOCKSOBFS '
-echo '============================================='
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
 echo '============================================='
 echo '       INSTALLING WIREGUARD '
 echo '============================================='
+sleep 3
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
-echo '============================================='
-echo '       INSTALLING V2RAY '
-echo '============================================='
-wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
-echo '============================================='
-echo '       INSTALLING XRAY '
-echo '============================================='
-wget https://raw.githubusercontent.com/tryoo127/mexxv/main/install-xray.sh && chmod +x install-xray.sh && screen -S v2ray ./install-xray.sh
 echo '============================================='
 echo '       INSTALLING OPENVPN OHP '
 echo '============================================='
+sleep 3
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 echo '============================================='
 echo '       UPDATE LATEST KERNEL '
 echo '============================================='
+sleep 3
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/kernel-updt.sh && chmod +x kernel-updt.sh && screen -S kernel-updt ./kernel-updt.sh
 echo '============================================='
 echo '       INSTALLING BACKUP '
 echo '============================================='
+sleep 3
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/set-br.sh && chmod +x set-br.sh && screen -S set-br ./set-br.sh
 echo '============================================='
 
@@ -98,9 +96,9 @@ echo ""
 echo '============================================='
 echo "      INSTALLATION HAS BEEN COMPLETED!!"
 echo '============================================='
-sleep 2
+sleep 3
 echo ""
-echo "      PREMIUM SCRIPT BY @mexxv" | tee -a log-install.txt
+echo "      PREMIUM SCRIPT BY @XoolVPN" | tee -a log-install.txt
 echo "=============================================" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   >>> Service & Port"  | tee -a log-install.txt
@@ -137,7 +135,7 @@ echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo ""
 echo "=============================================" | tee -a log-install.txt
-echo "      PREMIUM SCRIPT BY @mexxv" | tee -a log-install.txt
+echo "      PREMIUM SCRIPT BY @XoolVPN" | tee -a log-install.txt
 echo ""
 sleep 2
 echo '============================================='
