@@ -240,7 +240,7 @@ cat> /etc/v2ray/vless.json << END
   },
   "inbounds": [
     {
-      "port": 2083,
+      "port": 443,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -336,7 +336,7 @@ cat> /etc/v2ray/vnone.json << END
   },
   "inbounds": [
     {
-      "port": 2084,
+      "port": 80,
       "protocol": "vless",
       "settings": {
         "clients": [
