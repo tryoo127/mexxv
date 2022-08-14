@@ -41,16 +41,16 @@ echo "IP=$host" >> /var/lib/crot-script/ipvps.conf
 echo "$host" >> /etc/v2ray/domain
 clear
 echo '============================================='
-echo '       INSTALLING DOMAIN & V2RAY '
-echo '============================================='
-sleep 3
-wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
-wget https://raw.githubusercontent.com/tryoo127/mexxv/main/install-xray.sh && chmod +x install-xray.sh && screen -S v2ray ./install-xray.sh
-echo '============================================='
 echo '       INSTALLING SSH & OPENVPN '
 echo '============================================='
 sleep 3
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+echo '============================================='
+echo '       INSTALLING XRAY & V2RAY '
+echo '============================================='
+sleep 3
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+wget https://raw.githubusercontent.com/tryoo127/mexxv/main/install-xray.sh && chmod +x install-xray.sh && screen -S v2ray ./install-xray.sh
 echo '============================================='
 echo '       INSTALLING SHADOWSOCKS '
 echo '============================================='
