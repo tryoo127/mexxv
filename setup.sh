@@ -68,11 +68,6 @@ echo '============================================='
 sleep 3
 wget https://raw.githubusercontent.com/tryoo127/mexxv/main/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 echo '============================================='
-echo '       UPDATE LATEST KERNEL '
-echo '============================================='
-sleep 3
-wget https://raw.githubusercontent.com/tryoo127/mexxv/main/kernel-updt.sh && chmod +x kernel-updt.sh && screen -S kernel-updt ./kernel-updt.sh
-echo '============================================='
 echo '       INSTALLING BACKUP '
 echo '============================================='
 sleep 3
@@ -86,7 +81,6 @@ rm -f /root/ssr.sh
 rm -f /root/ins-vt.sh
 rm -f /root/install-xray.sh
 rm -f /root/ohp.sh
-rm -f /root/kernel-updt.sh
 rm -f /root/set-br.sh
 echo "1.1" > /home/ver
 
@@ -114,8 +108,8 @@ echo "   - SS-OBFS TLS             : 2443-2543"  | tee -a log-install.txt
 echo "   - SS-OBFS HTTP            : 3443-3543"  | tee -a log-install.txt
 echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
 echo "   - V2RAY Vmess None TLS    : 8444"  | tee -a log-install.txt
-echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
-echo "   - V2RAY Vless None TLS    : 2084"  | tee -a log-install.txt
+echo "   - V2RAY Vless TLS         : 443"  | tee -a log-install.txt
+echo "   - V2RAY Vless None TLS    : 80"  | tee -a log-install.txt
 echo "   - XRAY VLESS XTLS         : 465"  | tee -a log-install.txt
 echo "   - Trojan                  : 2087"  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
