@@ -66,7 +66,7 @@ EOF
 ssl_path_crt="/etc/v2ray/v2ray.crt"
 ssl_path_key="/etc/v2ray/v2ray.key"
 Port1=8181
-Port2=8282
+Port2=465
 uuid=$(cat /proc/sys/kernel/random/uuid)
 mkdir /var/log/xray
 
