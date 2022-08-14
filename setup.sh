@@ -116,7 +116,7 @@ echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
 echo "   - V2RAY Vmess None TLS    : 8444"  | tee -a log-install.txt
 echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
 echo "   - V2RAY Vless None TLS    : 80"  | tee -a log-install.txt
-echo "   - XRAY VLESS XTLS         : 443"  | tee -a log-install.txt
+echo "   - XRAY VLESS XTLS         : 8282"  | tee -a log-install.txt
 echo "   - Trojan                  : 2087"  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
 echo "   - Timezone                : Asia/Malaysia (UTC +8)"  | tee -a log-install.txt
