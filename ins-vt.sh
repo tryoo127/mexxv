@@ -61,7 +61,7 @@ cat> /etc/v2ray/config.json << END
         "clients": [
           {
             "id": "${uuid}",
-            "alterId": 2
+            "alterId": 0
 #tls
           }
         ]
@@ -158,7 +158,7 @@ cat> /etc/v2ray/none.json << END
         "clients": [
           {
             "id": "${uuid}",
-            "alterId": 2
+            "alterId": 0
 #none
           }
         ]
