@@ -36,23 +36,6 @@ systemctl start v2ray@none
 systemctl start trojan.service
 echo Done
 sleep 0.5
-
-echo -e " ${green} RECERT XRAY${NC}"
-sleep 1
-echo start
-sleep 0.5
-
-systemctl stop xray-mini@vless-direct.service
-systemctl stop xray-mini@vless-splice.service
-systemctl stop v2ray@vless.service
-systemctl stop xray-mini@vless-splice.service
-~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.ke --ecc
-systemctl start xray-mini@vless-direct.service
-systemctl start xray-mini@vless-splice.service
-systemctl start v2ray@vless.service
-systemctl start xray-mini@vless-splice.service
-echo Done
-sleep 0.5
 clear
 echo -e " ${green} RECERT DOMAIN COMPLETED${NC}"
 echo ""
