@@ -1,40 +1,60 @@
 #!/bin/bash
-
-MYIP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(wget -qO- ipinfo.io/ip)
 IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk '{print $4}' | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
-clear
-echo -e "${green}   TAHNIAH! ANDA DIBENARKAN MENGGUNAKAN SCRIPT INI...${NC}"
+echo -e "\e[0;32m            PERMISSION ACCEPTED!\e[0m"
 else
-clear
-echo ""
 rm -f setup.sh
-echo '                            ...                           '
-echo -e "${red}        MAAF! ANDA TIDAK DIBENARKAN MENGGUNAKAN SCRIPT INI...${NC}"
-echo '                            ...                           ' 
-sleep 7
+echo -e "\e[1;31m              PERMISSION DENIED!\e[0m"
+echo -e "\e[1;31m PLEASE CONTACT @XoolVPN TO REGISTER YOUR I.P\e[0m"
+sleep 5
 exit 0
 fi
 clear
-
+red='\e[1;31m'
+green='\e[0;32m'
+blue='\e[0;34m'
+cyan='\e[0;36m'
+cyanb='\e[46m'
+white='\e[0;37m'
+grey='\e[1;36m'
+NC='\e[0m'
+echo -e " ${green} RECERT V2RAY${NC}"
+sleep 1
 echo start
 sleep 0.5
-#source /var/lib/premium-script/ipvps.conf
 domain=$(cat /etc/v2ray/domain)
 systemctl stop v2ray
 systemctl stop v2ray@none
-mkdir /root/.acme.sh
-curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
-chmod +x /root/.acme.sh/acme.sh
-/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-~/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
+systemctl stop trojan
+systemctl stop nginx
+sudo kill -9 $(sudo lsof -t -i:80)
+~/.acme.sh/acme.sh --renew -d $domain --standalone -k ec-256 --force --ecc
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 systemctl start v2ray
 systemctl start v2ray@none
+systemctl start trojan.service
+echo Done
+sleep 0.5
+
+echo -e " ${green} RECERT XRAY${NC}"
+sleep 1
+echo start
+sleep 0.5
+
+systemctl stop xray-mini@vless-direct.service
+systemctl stop xray-mini@vless-splice.service
+systemctl stop v2ray@vless.service
+systemctl stop xray-mini@vless-splice.service
+~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.ke --ecc
 systemctl start xray-mini@vless-direct.service
 systemctl start xray-mini@vless-splice.service
-systemctl start trojan.service
 systemctl start v2ray@vless.service
 systemctl start xray-mini@vless-splice.service
 echo Done
 sleep 0.5
+clear
+echo -e " ${green} RECERT DOMAIN COMPLETED${NC}"
+echo ""
+read -n 1 -s -r -p "Press any key to back on menu"
+menu
