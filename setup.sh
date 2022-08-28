@@ -125,7 +125,7 @@ echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo "   - White Label" | tee -a log-install.txt
 echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "=================== XoolVPN AUTOSCRIPT AIO (V1.0) ===================" | tee -a log-install.txt
+echo "=================== XoolVPNx AUTOSCRIPT AIO (V1.0) ===================" | tee -a log-install.txt
 echo ""
 rm -f /root/setup.sh
 rm -f /root/.bash_history
